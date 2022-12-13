@@ -1,22 +1,75 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <JoinPage v-if="joined == false" :iface="loginIface()" />
+  <GameOver v-if="gameover == true" :iface="loginIface()" />
+  <GameConsole :iface="loginIface()" :game="gameId"/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+///https://github.com/neelansh15/vue-connect-wallet
+import JoinPage from "./components/JoinPage.vue";
+import GameOver from "./components/GameOver.vue";
+import GameConsole from "./components/GameConsole.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    JoinPage,
+    GameOver,
+    GameConsole,
+  },
+  data: function () {
+    console.log(this.$refs)
+    return {
+      name: "",
+      game: "",
+      gameover: false,
+      gameId: 1,
+    };
+  },
+  // watch: {
+  //   joined() {
+  //     this.name;
+  //     this.game;
+  //   }
+  // },
+  computed: {
+    joined() {  
+      return (this.name ? true : false) && (this.game ? true : false);
+    },
+  },
+  methods: {
+    loginIface() {
+      let vm = this;
+      return {
+        gameReStarted() {
+          vm.gameover = false
+          vm.gameId++
+        },
+        gameIsOver() {
+          vm.gameover = true
+        },
+        joined() {
+          return vm.joined;
+        },
+        set(name, game) {
+          vm.name = name;
+          vm.game = game;
+        },
+        get() {
+          return {
+            name: vm.name,
+            game: vm.game,
+          };
+        },
+      };
+    },
+  },
+};
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

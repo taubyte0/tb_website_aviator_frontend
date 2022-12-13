@@ -1,0 +1,127 @@
+*,
+*::after,
+*::before {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.startbtn {
+  position: absolute;
+  top: calc(50% - 40px);
+  height: 80px;
+  left: calc(50% - 100px);
+  width: 200px;
+}
+
+.header {
+  position: absolute;
+  top: 8vh;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  pointer-events: none;
+}
+
+.header h1 {
+  font-family: "Playfair Display";
+  font-size: 4.5em;
+  line-height: 1;
+  margin: 0;
+  letter-spacing: -0.025em;
+  color: #d1b790;
+}
+
+.header h1 span {
+  font-size: 0.2em;
+  font-style: italic;
+  display: block;
+  margin: 0 0 -1.5em -7em;
+  letter-spacing: 0px;
+}
+
+.header h2 {
+  font-size: 0.585em;
+  margin: 0.25em 0;
+  white-space: nowrap;
+  text-indent: 1em;
+  letter-spacing: 1em;
+  text-transform: uppercase;
+  color: #d6483b;
+}
+
+.score {
+  width: 100%;
+  margin: 2em 0 0;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.score__content {
+  position: relative;
+  display: inline-block;
+  padding: 0 1em;
+  vertical-align: top;
+}
+
+.score__content:nth-child(2) {
+  border-right: 1px solid #d1b790;
+  border-left: 1px solid #d1b790;
+}
+
+.score__label {
+  font-size: 9px;
+  position: relative;
+  margin: 0 0 0.5em 0;
+  text-align: center;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #d1b790;
+}
+
+.score__value {
+  font-family: "Playfair Display";
+  font-weight: bold;
+  color: #d1b790;
+}
+
+.score__value--dist {
+  font-size: 30px;
+}
+
+.score__value--energy {
+  position: relative;
+  width: 60px;
+  height: 8px;
+  margin-top: 20px;
+  border-radius: 3px;
+  background-color: #d1b790;
+}
+
+.energy-bar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 2px;
+  background-color: #f25346;
+  -webkit-animation-name: none;
+  animation-name: none;
+  -webkit-animation-duration: 150ms;
+  animation-duration: 150ms;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+.world {
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -999;
+
+  background: -webkit-linear-gradient(#e4e0ba, #f7d9aa);
+  background: linear-gradient(#e4e0ba, #f7d9aa);
+}

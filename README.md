@@ -1,4 +1,4 @@
-# template
+# vuejs-aviator
 
 ## Project setup
 ```
